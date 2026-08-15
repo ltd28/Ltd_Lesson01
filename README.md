@@ -112,6 +112,13 @@ Chức năng được gọi thông qua:
 ```
 
 ---
+<img width="642" height="390" alt="image" src="https://github.com/user-attachments/assets/af871974-3812-4deb-8aa2-bfb3e8f9cc80" />
+
+Kết quả:
+
+<img width="623" height="400" alt="image" src="https://github.com/user-attachments/assets/73f7482e-c3b4-4e50-bebe-2fe65788203e" />
+
+Khi nhập thông tin mã sinh viên sẽ không được trùng, tên sinh viên không được trống, cập nhật hoặc xóa sinh viên khi tồn tại sinh viên đó hay ngày sinh và email phải đúng định dạng. Nếu vi phạm sẽ thông báo lỗi và yêu cầu nhập lại.
 
 ### 5.2. Hiển thị thông tin sinh viên
 
@@ -122,6 +129,13 @@ Hiển thị thông tin của các sinh viên hiện có trong danh sách.
 ```
 
 ---
+<img width="641" height="390" alt="image" src="https://github.com/user-attachments/assets/84e85b29-6c1f-436d-8de9-0e7485223897" />
+
+Kết quả:
+
+<img width="386" height="637" alt="image" src="https://github.com/user-attachments/assets/a8c45c0c-941e-49ff-944f-9e89acc64bc6" />
+
+
 
 ### 5.3. Tìm sinh viên theo mã
 
@@ -132,6 +146,13 @@ Cho phép tìm kiếm chính xác một sinh viên dựa trên mã sinh viên.
 ```
 
 ---
+<img width="764" height="680" alt="image" src="https://github.com/user-attachments/assets/1a294ef4-f482-4af5-845c-5c290b349226" />
+
+Kết quả:
+
+<img width="334" height="273" alt="image" src="https://github.com/user-attachments/assets/20e3fa7d-362a-452f-8580-75794c63ac86" />
+
+Chỉ cho ra kết quả nếu tồn tại sinh viên đó.
 
 ### 5.4. Tìm gần đúng theo tên
 
@@ -144,6 +165,12 @@ Chức năng hỗ trợ tìm kiếm gần đúng thay vì yêu cầu nhập chí
 ```
 
 ---
+<img width="928" height="671" alt="image" src="https://github.com/user-attachments/assets/a1f265d9-2bd1-4826-93d8-79df62de9ca5" />
+
+Kết quả:
+
+<img width="292" height="267" alt="image" src="https://github.com/user-attachments/assets/8468fcca-e220-4934-bd14-bce304f78c0e" />
+
 
 ### 5.5. Cập nhật thông tin sinh viên
 
@@ -154,6 +181,14 @@ Cho phép tìm sinh viên và cập nhật lại thông tin của sinh viên đ�
 ```
 
 ---
+<img width="701" height="769" alt="image" src="https://github.com/user-attachments/assets/ee976217-80d4-4bab-ade4-056d82fb5c85" />
+
+Kết quả:
+
+<img width="383" height="268" alt="image" src="https://github.com/user-attachments/assets/3692c23f-6afe-4aa2-9f71-afa533d0ddc4" />
+
+Chỉ cho phép cập nhật thông tin sinh viên khi tồn tại sinh viên đó.
+
 
 ### 5.6. Xóa sinh viên
 
@@ -164,6 +199,14 @@ Cho phép xóa sinh viên dựa trên mã sinh viên.
 ```
 
 ---
+<img width="785" height="527" alt="image" src="https://github.com/user-attachments/assets/84db3f81-0b13-417f-a22a-0ffcfca1cafe" />
+
+Kết quả:
+
+<img width="300" height="66" alt="image" src="https://github.com/user-attachments/assets/d48ca203-5896-480c-a7ab-aebd0af8bfb1" />
+
+Chỉ cho phép xóa sinh viên khi tồn tại sinh viên đó.
+
 
 ### 5.7. Sắp xếp theo họ tên
 
@@ -174,7 +217,13 @@ Sắp xếp danh sách sinh viên theo họ tên.
 ```
 
 ---
+<img width="698" height="148" alt="image" src="https://github.com/user-attachments/assets/7a784e66-e719-40ca-9472-83b025011834" />
 
+Kết quả:
+
+<img width="471" height="663" alt="image" src="https://github.com/user-attachments/assets/8f6bf90a-81aa-4fb5-8624-de179499e8a0" />
+
+Danh sách sinh viên khi được hiển thị ra sẽ sắp xếp theo thứ tự alphabet của họ và tên.
 ### 5.8. Sắp xếp theo điểm trung bình
 
 Sắp xếp danh sách sinh viên dựa trên điểm trung bình.
@@ -184,6 +233,14 @@ Sắp xếp danh sách sinh viên dựa trên điểm trung bình.
 ```
 
 ---
+<img width="783" height="148" alt="image" src="https://github.com/user-attachments/assets/c2708ec6-5d1e-4468-9c8f-14fe096a84c0" />
+
+Kết quả:
+
+<img width="504" height="665" alt="image" src="https://github.com/user-attachments/assets/fc426b72-66d7-4e9c-bbd1-22bb6bcebb8b" />
+
+Kết quả khi in danh sách sinh viên ra sẽ sắp xếp tăng dần theo điểm trung bình.
+
 
 ### 5.9. Hiển thị sinh viên có điểm từ 8 trở lên
 
@@ -194,6 +251,12 @@ Lọc danh sách và hiển thị những sinh viên có điểm trung bình **t
 ```
 
 ---
+<img width="603" height="236" alt="image" src="https://github.com/user-attachments/assets/986bf7ce-b573-458c-9010-0766cf8d4703" />
+
+Kết quả:
+
+<img width="432" height="463" alt="image" src="https://github.com/user-attachments/assets/21bfa8d0-7d52-485b-8233-a82e44e18588" />
+
 
 ### 5.10. Tìm sinh viên có điểm cao nhất
 
@@ -204,6 +267,12 @@ Tìm và hiển thị sinh viên có điểm trung bình cao nhất trong danh s
 ```
 
 ---
+<img width="794" height="479" alt="image" src="https://github.com/user-attachments/assets/f19bafb5-41a1-45de-954c-0623f66217f9" />
+
+Kết quả:
+
+<img width="564" height="262" alt="image" src="https://github.com/user-attachments/assets/08f76d88-e635-4e1e-a974-39fb51d42b78" />
+
 
 ### 5.11. Tính điểm trung bình toàn bộ sinh viên
 
@@ -214,6 +283,12 @@ Tính điểm trung bình dựa trên điểm trung bình của các sinh viên 
 ```
 
 ---
+<img width="733" height="452" alt="image" src="https://github.com/user-attachments/assets/717f27b3-d313-493d-83dc-65b2bced227a" />
+
+Kết quả:
+
+<img width="330" height="58" alt="image" src="https://github.com/user-attachments/assets/70e006bb-f060-4a97-8604-7abd32ea6821" />
+
 
 ### 5.12. Thống kê sinh viên theo ngành
 
@@ -224,6 +299,12 @@ Thống kê số lượng sinh viên dựa trên ngành học.
 ```
 
 ---
+<img width="741" height="428" alt="image" src="https://github.com/user-attachments/assets/8fd0fc9e-9b7b-4d2d-9a32-1a7632f0309a" />
+
+Kết quả:
+
+<img width="493" height="287" alt="image" src="https://github.com/user-attachments/assets/6dddc29a-9b41-47d3-a3ce-e0466c044ff5" />
+
 
 ### 5.13. Thống kê sinh viên theo trạng thái
 
@@ -234,6 +315,12 @@ Thống kê sinh viên dựa trên trạng thái được lưu trong thuộc tí
 ```
 
 ---
+<img width="643" height="336" alt="image" src="https://github.com/user-attachments/assets/a29366d5-1c9b-423c-b1c2-cbdf3ea5350b" />
+
+Kết quả:
+
+<img width="394" height="140" alt="image" src="https://github.com/user-attachments/assets/a2320be3-8a89-42da-9273-5591049111b8" />
+
 
 ### 5.14. Thoát chương trình
 
