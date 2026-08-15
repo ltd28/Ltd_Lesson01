@@ -1,31 +1,134 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace LtdLesson01 {
   public static class Program {
+    private static bool LaEmailHopLe(string email)
+    {
+      return !string.IsNullOrWhiteSpace(email) && Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+    }
+
+    private static string NhapMaSinhVien(List<SinhVien> student, bool choPhepTonTai = false)
+    {
+      while (true)
+      {
+        Console.Write("Nhap ma sinh vien: ");
+        string ma = Console.ReadLine();
+
+        if (string.IsNullOrWhiteSpace(ma))
+        {
+          Console.WriteLine("Ma sinh vien khong duoc rong.");
+          continue;
+        }
+
+        if (!choPhepTonTai && student.Exists(sv => sv.maSV == ma))
+        {
+          Console.WriteLine("Ma sinh vien da ton tai. Vui long nhap ma khac.");
+          continue;
+        }
+
+        return ma;
+      }
+    }
+
+    private static string NhapHoTen()
+    {
+      while (true)
+      {
+        Console.Write("Nhap ho ten sinh vien: ");
+        string hoTen = Console.ReadLine();
+
+        if (!string.IsNullOrWhiteSpace(hoTen))
+        {
+          return hoTen;
+        }
+
+        Console.WriteLine("Ho ten khong duoc rong.");
+      }
+    }
+
+    private static DateTime NhapNgaySinh()
+    {
+      while (true)
+      {
+        Console.Write("Nhap ngay sinh (dd/MM/yyyy): ");
+        string input = Console.ReadLine();
+
+        if (DateTime.TryParseExact(input, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime ngaySinh))
+        {
+          return ngaySinh;
+        }
+
+        Console.WriteLine("Ngay sinh khong hop le. Vui long nhap theo dinh dang dd/MM/yyyy.");
+      }
+    }
+
+    private static bool NhapBool(string tenTruong)
+    {
+      while (true)
+      {
+        Console.Write($"Nhap {tenTruong} (true/false): ");
+        string input = Console.ReadLine();
+
+        if (bool.TryParse(input, out bool value))
+        {
+          return value;
+        }
+
+        Console.WriteLine("Gia tri khong hop le. Vui long nhap true hoac false.");
+      }
+    }
+
+    private static string NhapEmail()
+    {
+      while (true)
+      {
+        Console.Write("Nhap email: ");
+        string email = Console.ReadLine();
+
+        if (LaEmailHopLe(email))
+        {
+          return email;
+        }
+
+        Console.WriteLine("Email khong hop le. Vui long nhap theo dinh dang abc@example.com");
+      }
+    }
+
+    private static float NhapDiemTrungBinh()
+    {
+      while (true)
+      {
+        Console.Write("Nhap diem trung binh: ");
+        string input = Console.ReadLine();
+
+        if (float.TryParse(input, out float diem) && diem >= 0 && diem <= 10)
+        {
+          return diem;
+        }
+
+        Console.WriteLine("Diem trung binh phai nam trong khoang tu 0 den 10.");
+      }
+    }
+
 //them sinh vien
     public static void ThemSinhVien(List<SinhVien> student){
        SinhVien sv = new SinhVien();
-       System.Console.WriteLine("Nhap ma sinh vien: ");
-       sv.maSV = System.Console.ReadLine();
-       System.Console.WriteLine("Nhap ten sinh vien: ");
-       sv.hoTen = System.Console.ReadLine();
-       System.Console.WriteLine("Nhap ngay sinh: ");
-       sv.ngaySinh = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
-       System.Console.WriteLine("Nhap gioi tinh: ");
-       sv.gioiTinh = bool.Parse(System.Console.ReadLine());
-       System.Console.WriteLine("Nhap email: ");
-       sv.eMail = System.Console.ReadLine();
-       System.Console.WriteLine("Nhap so dien thoai: ");
-       sv.sDT = System.Console.ReadLine();
-       System.Console.WriteLine("Nhap nganh hoc: ");
-       sv.nganhHoc = System.Console.ReadLine();
-       System.Console.WriteLine("Nhap diem trung binh: ");
-       sv.dTB = float.Parse(System.Console.ReadLine());
-       System.Console.WriteLine("Nhap trang thai: ");
-       sv.trangThai = bool.Parse(System.Console.ReadLine());
+       sv.maSV = NhapMaSinhVien(student);
+       sv.hoTen = NhapHoTen();
+       sv.ngaySinh = NhapNgaySinh();
+       sv.gioiTinh = NhapBool("gioi tinh");
+       sv.eMail = NhapEmail();
+       Console.Write("Nhap so dien thoai: ");
+       sv.sDT = Console.ReadLine();
+       Console.Write("Nhap nganh hoc: ");
+       sv.nganhHoc = Console.ReadLine();
+       sv.dTB = NhapDiemTrungBinh();
+       sv.trangThai = NhapBool("trang thai");
        student.Add(sv);
+       Console.WriteLine("Them sinh vien thanh cong!");
     }
 
 //hien thi danh sach sinh vien
@@ -49,7 +152,8 @@ namespace LtdLesson01 {
 //Tim sinh vien theo ma
     public static void TimTheoMa(List<SinhVien> student)
     {
-      string ma = System.Console.ReadLine();
+      Console.Write("Nhap ma sinh vien can tim: ");
+      string ma = Console.ReadLine();
       SinhVien sinhVienTimThay = null;
       foreach(var sv in student)
       {
@@ -71,7 +175,6 @@ namespace LtdLesson01 {
         System.Console.WriteLine("Nganh hoc: " + sinhVienTimThay.nganhHoc);
         System.Console.WriteLine("Diem trung binh: " + sinhVienTimThay.dTB);
         System.Console.WriteLine("Trang thai: " + sinhVienTimThay.trangThai);
-      
       }
       else System.Console.WriteLine("Khong co sinh vien nao co ma: " + ma);
     }
@@ -80,11 +183,12 @@ namespace LtdLesson01 {
 // tim gan dung theo ho ten
 public static void TimGanDung(List<SinhVien> student)
     {
-      string ten = System.Console.ReadLine();
+      Console.Write("Nhap ten can tim: ");
+      string ten = Console.ReadLine();
       List<SinhVien> kq = new List<SinhVien>();
       foreach(var sv in student)
       {
-        if(sv.hoTen.Contains(ten)){
+        if(sv.hoTen != null && sv.hoTen.Contains(ten, StringComparison.OrdinalIgnoreCase)){
         kq.Add(sv);
         }
       }
@@ -109,76 +213,60 @@ public static void TimGanDung(List<SinhVien> student)
 //cap nhat sinh vien
     public static void CapNhatSinhVien(List<SinhVien> student)
     {
-      string ma = System.Console.ReadLine();
-      Boolean check = false;
-      SinhVien  svCanSua = null;
+      Console.Write("Nhap ma sinh vien can cap nhat: ");
+      string ma = Console.ReadLine();
+      SinhVien svCanSua = null;
       foreach(var sv in student)
       {
         if(sv.maSV == ma)
         {
-          check = true;
           svCanSua = sv;
           break;
         }
       }
-      if(!check) {
+      if(svCanSua == null) {
         System.Console.WriteLine("Khong tim thay sinh vien co ma: "+ma);
-      }else //tim thay
-      {
-        Console.WriteLine("Nhap thong tin moi:");
-
-        Console.Write("Nhap ten sinh vien: ");
-        svCanSua.hoTen = Console.ReadLine();
-
-        Console.Write("Nhap ngay sinh: ");
-        svCanSua.ngaySinh = DateTime.Parse(Console.ReadLine());
-
-        Console.Write("Nhap gioi tinh: ");
-        svCanSua.gioiTinh = bool.Parse(Console.ReadLine());
-
-        Console.Write("Nhap email: ");
-        svCanSua.eMail = Console.ReadLine();
-
-        Console.Write("Nhap so dien thoai: ");
-        svCanSua.sDT = Console.ReadLine();
-
-        Console.Write("Nhap nganh hoc: ");
-        svCanSua.nganhHoc = Console.ReadLine();
-
-        Console.Write("Nhap diem trung binh: ");
-        svCanSua.dTB = float.Parse(Console.ReadLine());
-
-        Console.Write("Nhap trang thai: ");
-        svCanSua.trangThai = bool.Parse(Console.ReadLine());
-
-        Console.WriteLine("Cap nhat thanh cong!");
+        return;
       }
+
+      Console.WriteLine("Nhap thong tin moi:");
+      svCanSua.hoTen = NhapHoTen();
+      svCanSua.ngaySinh = NhapNgaySinh();
+      svCanSua.gioiTinh = NhapBool("gioi tinh");
+      svCanSua.eMail = NhapEmail();
+      Console.Write("Nhap so dien thoai: ");
+      svCanSua.sDT = Console.ReadLine();
+      Console.Write("Nhap nganh hoc: ");
+      svCanSua.nganhHoc = Console.ReadLine();
+      svCanSua.dTB = NhapDiemTrungBinh();
+      svCanSua.trangThai = NhapBool("trang thai");
+
+      Console.WriteLine("Cap nhat thanh cong!");
     }
 
 
 //xoa sinh vien
 public static void XoaSinhVien(List<SinhVien> student)
     {
+      Console.Write("Nhap ma sinh vien can xoa: ");
       string ma = Console.ReadLine();
-      Boolean check = false;
       SinhVien svCanXoa = null;
       foreach(var sv in student)
       {
         if(sv.maSV == ma)
         {
-          check = true;
           svCanXoa = sv;
           break;
         }
       }
-      if (!check)
+      if (svCanXoa == null)
       {
         System.Console.WriteLine("Khong tim thay sinh vien nao co ma: " + ma);
-      }else
-      {
-        student.Remove(svCanXoa);
-        System.Console.WriteLine("Da xoa thanh cong!");
+        return;
       }
+
+      student.Remove(svCanXoa);
+      System.Console.WriteLine("Da xoa thanh cong!");
     }
 
 
